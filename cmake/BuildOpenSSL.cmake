@@ -170,8 +170,9 @@ else()
     
     # add openssl target
     ExternalProject_Add(openssl
-        URL https://mirror.viaduck.org/openssl/openssl-${OPENSSL_BUILD_VERSION}.tar.gz
-        ${OPENSSL_CHECK_HASH}
+        GIT_REPOSITORY git@github.com:openssl/openssl.git
+        GIT_TAG openssl-${OPENSSL_BUILD_VERSION}
+
         UPDATE_COMMAND ""
 
         CONFIGURE_COMMAND ${BUILD_ENV_TOOL} <SOURCE_DIR> ${COMMAND_CONFIGURE}
